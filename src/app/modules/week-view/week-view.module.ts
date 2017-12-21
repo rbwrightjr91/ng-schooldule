@@ -2,20 +2,29 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 
-import { FirestoreModule } from '../firestore/firestore.module';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+
+
+import { FirestoreService } from './firestore.service';
 import { WeekViewComponent } from './week-view.component';
-import { FirestoreComponent } from '../firestore/firestore.component';
+
+
+import { environment } from '../../../environments/environment';
+import { ClassField } from '@angular/compiler/src/output/output_ast';
+export const firebaseConfig = environment.firebaseConfig;
 
 @NgModule({
   imports: [
     CommonModule,
-    FirestoreModule
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule,
   ],
   exports: [
     WeekViewComponent
   ],
   providers: [
-    FirestoreComponent
+    FirestoreService
   ],
   declarations: [
     WeekViewComponent

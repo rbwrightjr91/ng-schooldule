@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 
 
 import { Class } from '../../interfaces/class';
-import { FirestoreComponent } from '../firestore/firestore.component';
+import { FirestoreService } from './firestore.service';
 
 
 @Component({
@@ -15,11 +15,11 @@ export class WeekViewComponent implements OnInit {
 
   classData: Observable<Class[]>;
 
-  constructor(private fsc: FirestoreComponent) { }
+  constructor(private fss: FirestoreService) { }
 
   ngOnInit() {
 
-    this.classData = this.fsc.getClasses();
+    this.classData = this.fss.getClasses();
 
   }
 

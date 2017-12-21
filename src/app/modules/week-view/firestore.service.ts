@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -6,14 +6,8 @@ import 'rxjs/add/operator/map';
 
 import { Class } from '../../interfaces/class';
 
-
-@Component({
-  selector: 'app-firestore',
-  templateUrl: './firestore.component.html',
-  styleUrls: ['./firestore.component.css']
-})
-
-export class FirestoreComponent implements OnInit {
+@Injectable()
+export class FirestoreService {
 
   classCollection: AngularFirestoreCollection<Class>;
   classes: Observable<Class[]>;
@@ -23,9 +17,6 @@ export class FirestoreComponent implements OnInit {
     this.classCollection = this.afs.collection<Class>('Class');
     this.classes = this.classCollection.valueChanges();
 
-  }
-
-  ngOnInit() {
   }
 
   public getClasses(): Observable<Class[]>{
