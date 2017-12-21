@@ -5,12 +5,16 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 
+import { FirestoreModule } from './modules/firestore/firestore.module';
+
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
