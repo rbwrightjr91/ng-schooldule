@@ -2,13 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 
-import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-
-
 import { AppComponent } from './app.component';
-import { environment } from '../environments/environment';
-export const firebaseConfig = environment.firebaseConfig;
+
+
+import { FirestoreModule } from './modules/firestore/firestore.module';
 
 
 @NgModule({
@@ -17,8 +14,7 @@ export const firebaseConfig = environment.firebaseConfig;
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFirestoreModule,
+    FirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
