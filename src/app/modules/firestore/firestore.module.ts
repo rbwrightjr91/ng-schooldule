@@ -8,6 +8,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 
 import { environment } from '../../../environments/environment';
+import { ClassField } from '@angular/compiler/src/output/output_ast';
 export const firebaseConfig = environment.firebaseConfig;
 
 @NgModule({
@@ -17,8 +18,10 @@ export const firebaseConfig = environment.firebaseConfig;
     AngularFirestoreModule,
   ],
   exports: [
-    FirestoreComponent
+    FirestoreComponent,
   ],
-  declarations: [FirestoreComponent]
+  declarations: [
+    FirestoreComponent,
+  ]
 })
 export class FirestoreModule { }

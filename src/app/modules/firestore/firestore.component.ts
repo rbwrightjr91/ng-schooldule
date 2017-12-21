@@ -4,14 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 
-interface Class {
-  class: string;
-  title: string;
-  semester: string;
-  days: string[];
-  start: number;
-  end: number;
-}
+import { Class } from '../../interfaces/class';
+
 
 @Component({
   selector: 'app-firestore',
@@ -24,13 +18,18 @@ export class FirestoreComponent implements OnInit {
   classCollection: AngularFirestoreCollection<Class>;
   classes: Observable<Class[]>;
 
-  constructor(private afs: AngularFirestore) { }
-
-  ngOnInit() {
+  constructor(private afs: AngularFirestore) {
 
     this.classCollection = this.afs.collection<Class>('Class');
     this.classes = this.classCollection.valueChanges();
 
+  }
+
+  ngOnInit() {
+  }
+
+  public getClasses(): Observable<Class[]>{
+    return this.classes;
   }
 
 }

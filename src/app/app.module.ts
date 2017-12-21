@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 
-import { FirestoreModule } from './modules/firestore/firestore.module';
+import { WeekViewModule } from './modules/week-view/week-view.module';
 
 
 @NgModule({
@@ -14,7 +14,7 @@ import { FirestoreModule } from './modules/firestore/firestore.module';
   ],
   imports: [
     BrowserModule,
-    FirestoreModule
+    WeekViewModule
   ],
   providers: [],
   bootstrap: [AppComponent]

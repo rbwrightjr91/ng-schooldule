@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FirestoreComponent } from './modules/firestore/firestore.component';
 
 @Component({
   selector: 'app-root',
