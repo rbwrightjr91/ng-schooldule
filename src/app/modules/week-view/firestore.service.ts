@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/operator/switchMap';
 
 
 import { Class } from '../../interfaces/class';
@@ -19,8 +20,11 @@ export class FirestoreService {
 
   }
 
-  public getClasses(): Observable<Class[]>{
-    return this.classes;
+  public getEarliest(): Observable<Class[]> {
+    const earliest$ = new Subject<Class[]>();
+    return earliest$.switchMap( earliest =>
+      this.afs.collection<Class>('Class', ref => ref.orderBy('start', 'asc').limit(1)).valueChanges()
+    );
   }
 
 }
