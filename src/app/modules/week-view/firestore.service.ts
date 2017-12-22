@@ -24,11 +24,12 @@ export class FirestoreService {
     return this.classes;
   }
 
-  /* public getEarliest(): Observable<Class[]> {
-    const earliest$ = new Subject<Class[]>();
-    return earliest$.switchMap( earliest =>
-      this.afs.collection<Class>('Class', ref => ref.where('semester', '==', 'sp18').orderBy('start', 'asc').limit(1)).valueChanges()
-    );
-  } */
+  public getEarliest(): Observable<Class[]> {
+    return this.afs.collection<Class>('Class', ref => ref.orderBy('start', 'asc').limit(1)).valueChanges();
+  }
+
+  public getLatest(): Observable<Class[]> {
+    return this.afs.collection<Class>('Class', ref => ref.orderBy('end', 'desc').limit(1)).valueChanges();
+  }
 
 }

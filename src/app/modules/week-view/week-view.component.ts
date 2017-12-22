@@ -14,30 +14,26 @@ import { FirestoreService } from './firestore.service';
 export class WeekViewComponent implements OnInit {
 
   classData: Observable<Class[]>;
-
   earliestClass: Observable<Class[]>;
+  latestClass: Observable<Class[]>;
 
-  earlyClass: Class[];
-
-  constructor(private fss: FirestoreService) { }
+  constructor(private fss: FirestoreService) {
+  }
 
   ngOnInit() {
 
     this.classData = this.fss.getClasses();
-
-    this.getEarliestClassTime();
+    this.earliestClass = this.getEarliestClass();
+    this.latestClass = this.getLatestClass();
 
   }
 
-  getEarliestClassTime() {
+  getEarliestClass(): Observable<Class[]> {
+    return this.fss.getEarliest();
+  }
 
-    /*
-
-    Make a call to FirestoreService to get earliest class
-
-    */
-
-    // return 1;
+  getLatestClass(): Observable<Class[]> {
+    return this.fss.getLatest();
   }
 
 }

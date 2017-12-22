@@ -13,9 +13,3 @@
     <!-- Get times from firestore -->
   </tbody>
 </table>
-
-<button (click)="getEarliestClassTime()">TEST</button>
-
-<div *ngFor="let class of classData | async">
-  <p>{{class | json}}</p>
-</div>
