@@ -20,11 +20,15 @@ export class FirestoreService {
 
   }
 
-  public getEarliest(): Observable<Class[]> {
+  getClasses(): Observable<Class[]> {
+    return this.classes;
+  }
+
+  /* public getEarliest(): Observable<Class[]> {
     const earliest$ = new Subject<Class[]>();
     return earliest$.switchMap( earliest =>
-      this.afs.collection<Class>('Class', ref => ref.orderBy('start', 'asc').limit(1)).valueChanges()
+      this.afs.collection<Class>('Class', ref => ref.where('semester', '==', 'sp18').orderBy('start', 'asc').limit(1)).valueChanges()
     );
-  }
+  } */
 
 }
