@@ -13,27 +13,30 @@ import { FirestoreService } from './firestore.service';
 })
 export class WeekViewComponent implements OnInit {
 
-  classData: Observable<Class[]>;
-  earliestClass: Observable<Class[]>;
-  latestClass: Observable<Class[]>;
+  // classData: Class[];
+  earliestClass: Class;
+  latestClass: Class;
+
+  earliest: number;
+  latest: number;
+
+  numTimeSlots: Array<number>;
 
   constructor(private fss: FirestoreService) {
   }
 
   ngOnInit() {
 
-    this.classData = this.fss.getClasses();
-    this.earliestClass = this.getEarliestClass();
-    this.latestClass = this.getLatestClass();
+    // this.fss.getClasses().subscribe((data) => this.classData = data);
+    this.fss.getEarliest().subscribe((data) => this.earliestClass = data[0]);
+    this.fss.getLatest().subscribe((data) => this.latestClass = data[0]);
+
+    /* this.numTimeSlots = Array(Math.ceil(((this.latestClass.start + 100) - (this.earliestClass.start - 100)) / 30))
+                            .fill(0).map((x, i) => i); */
 
   }
 
-  getEarliestClass(): Observable<Class[]> {
-    return this.fss.getEarliest();
+  getTimeSlots(): number[] {
+    return Array(Math.ceil(((this.latestClass.start + 100) - (this.earliestClass.start - 100)) / 30)).fill(0).map((x, i) => i);
   }
-
-  getLatestClass(): Observable<Class[]> {
-    return this.fss.getLatest();
-  }
-
 }

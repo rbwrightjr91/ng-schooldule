@@ -10,6 +10,10 @@
     <th scope="col">S</th>
   </thead>
   <tbody>
-    <!-- Get times from firestore -->
+    <tr *ngFor="let i of getTimeSlots()">
+      <b>{{earliestClass.start | json}}</b>
+    </tr>
   </tbody>
 </table>
+
+<!-- <button (click)="testingFn()">TEST</button> -->
