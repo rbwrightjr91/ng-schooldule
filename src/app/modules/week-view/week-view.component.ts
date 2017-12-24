@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Time } from '@angular/common';
 import { Observable } from 'rxjs/Observable';
 
 
@@ -17,8 +16,6 @@ export class WeekViewComponent implements OnInit {
   classData: Class[];
   earliestClass: Class;
   latestClass: Class;
-
-  numTimeSlots: Array<Date>;
 
   constructor(private fss: FirestoreService) {
   }
