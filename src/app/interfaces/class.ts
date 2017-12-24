@@ -3,6 +3,6 @@ export interface Class {
   title: string;
   semester: string;
   days: string[];
-  start: number;
-  end: number;
+  start: Date;
+  end: Date;
 }

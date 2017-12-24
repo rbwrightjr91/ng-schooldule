@@ -1,17 +1,26 @@
 <table class="table">
   <thead>
-    <th scope="col">Time</th>
-    <th scope="col">Su</th>
-    <th scope="col">M</th>
-    <th scope="col">T</th>
-    <th scope="col">W</th>
-    <th scope="col">Th</th>
-    <th scope="col">F</th>
-    <th scope="col">S</th>
+    <tr>
+      <th scope="col">Time</th>
+      <th scope="col">Su</th>
+      <th scope="col">M</th>
+      <th scope="col">T</th>
+      <th scope="col">W</th>
+      <th scope="col">Th</th>
+      <th scope="col">F</th>
+      <th scope="col">S</th>
+    </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let i of getTimeSlots()">
-      <b>{{earliestClass.start | json}}</b>
+    <tr *ngFor="let time of getTimeSlots();">
+      <th scope="row">{{(earliestClass.start.getTime() - (3600 * 1000)) + (time * 3600 * 1000) | date: 'shortTime'}}</th>
+      <td id="Su">test</td>
+      <td id="M">test</td>
+      <td id="T">test</td>
+      <td id="W">test</td>
+      <td id="Th">test</td>
+      <td id="F">test</td>
+      <td id="S">test</td>
     </tr>
   </tbody>
 </table>
