@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table-sm table-striped">
   <thead>
     <tr>
       <th scope="col">Time</th>
@@ -12,10 +12,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let time of getTimeSlots();">
-      <th scope="row">{{(earliestClass.start.getTime() - (3600 * 1000)) + (time * 3600 * 1000) | date: 'shortTime'}}</th>
+    <tr *ngFor="let time of getTimeSlots()">
+      <th scope="row" id="time-slot">{{(earliestClass.start.getTime() - (3600 * 1000)) + (time * 3600 * 1000) | date: 'shortTime'}}</th>
       <td id="Su">test</td>
-      <td id="M">test</td>
+      <td *ngIf="time > 7" id="M" class="table-primary">test</td>
+      <td *ngIf="time <= 7" id="M">test</td>
       <td id="T">test</td>
       <td id="W">test</td>
       <td id="Th">test</td>
@@ -25,4 +26,7 @@
   </tbody>
 </table>
 
-<!-- <button (click)="testingFn()">TEST</button> -->
+<!-- <br><br>
+<p>{{earliestClass | json}}</p>
+<br>
+<p>{{latestClass | json}}</p> -->
