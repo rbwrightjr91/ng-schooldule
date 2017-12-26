@@ -1,61 +1,17 @@
 <table class="table-sm table-striped">
   <thead>
     <tr>
-      <th scope="col">Time</th>
-      <th scope="col">Sun</th>
-      <th scope="col">Mon</th>
-      <th scope="col">Tue</th>
-      <th scope="col">Wed</th>
-      <th scope="col">Thu</th>
-      <th scope="col">Fri</th>
-      <th scope="col">Sat</th>
+      <th scope="col">time</th>
+      <th *ngFor="let day of days" scope="col">{{day}}</th>
     </tr>
   </thead>
   <tbody>
     <ng-container *ngFor="let time of getTimeSlots()">
       <tr>
         <th scope="row" id="time-slot">{{time | date: 'shortTime'}}</th>
-        <td id="Su" [ngClass] = "{ 'bg-primary' : inSession(time, 'sun')   }"></td>
-        <td id="M"  [ngClass] = "{ 'bg-primary' : inSession(time, 'mon')   }"></td>
-        <td id="T"  [ngClass] = "{ 'bg-primary' : inSession(time, 'tues')  }"></td>
-        <td id="W"  [ngClass] = "{ 'bg-primary' : inSession(time, 'wed')   }"></td>
-        <td id="Th" [ngClass] = "{ 'bg-primary' : inSession(time, 'thurs') }"></td>
-        <td id="F"  [ngClass] = "{ 'bg-primary' : inSession(time, 'fri')   }"></td>
-        <td id="S"  [ngClass] = "{ 'bg-primary' : inSession(time, 'sat')   }"></td>
+        <td *ngFor="let day of days; let i = index" id={{day}} [ngClass] = "{ 'bg-primary' : inSession(time, day) }"></td>
         <!-- <p>{{time}}</p> -->
       </tr>
-      <!-- <ng-container *ngIf="quarter()">
-        <tr>
-          <th scope="row" id="time-slot"></th>
-          <td id="Su" [ngClass] = "{ 'table-primary' : fifteenMins(time, 'sun')   }"></td>
-          <td id="M"  [ngClass] = "{ 'table-primary' : fifteenMins(time, 'mon')   }"></td>
-          <td id="T"  [ngClass] = "{ 'table-primary' : fifteenMins(time, 'tues')  }"></td>
-          <td id="W"  [ngClass] = "{ 'table-primary' : fifteenMins(time, 'wed')   }"></td>
-          <td id="Th" [ngClass] = "{ 'table-primary' : fifteenMins(time, 'thurs') }"></td>
-          <td id="F"  [ngClass] = "{ 'table-primary' : fifteenMins(time, 'fri')   }"></td>
-          <td id="S"  [ngClass] = "{ 'table-primary' : fifteenMins(time, 'sat')   }"></td>
-        </tr>
-        <tr>
-          <th scope="row" id="time-slot"></th>
-          <td id="Su" [ngClass] = "{ 'table-primary' : thirtyMins(time, 'sun')   }"></td>
-          <td id="M"  [ngClass] = "{ 'table-primary' : thirtyMins(time, 'mon')   }"></td>
-          <td id="T"  [ngClass] = "{ 'table-primary' : thirtyMins(time, 'tues')  }"></td>
-          <td id="W"  [ngClass] = "{ 'table-primary' : thirtyMins(time, 'wed')   }"></td>
-          <td id="Th" [ngClass] = "{ 'table-primary' : thirtyMins(time, 'thurs') }"></td>
-          <td id="F"  [ngClass] = "{ 'table-primary' : thirtyMins(time, 'fri')   }"></td>
-          <td id="S"  [ngClass] = "{ 'table-primary' : thirtyMins(time, 'sat')   }"></td>
-        </tr>
-        <tr>
-          <th scope="row" id="time-slot"></th>
-          <td id="Su" [ngClass] = "{ 'table-primary' : foryFiveMins(time, 'sun')   }"></td>
-          <td id="M"  [ngClass] = "{ 'table-primary' : foryFiveMins(time, 'mon')   }"></td>
-          <td id="T"  [ngClass] = "{ 'table-primary' : foryFiveMins(time, 'tues')  }"></td>
-          <td id="W"  [ngClass] = "{ 'table-primary' : foryFiveMins(time, 'wed')   }"></td>
-          <td id="Th" [ngClass] = "{ 'table-primary' : foryFiveMins(time, 'thurs') }"></td>
-          <td id="F"  [ngClass] = "{ 'table-primary' : foryFiveMins(time, 'fri')   }"></td>
-          <td id="S"  [ngClass] = "{ 'table-primary' : foryFiveMins(time, 'sat')   }"></td>
-        </tr>
-      </ng-container> -->
     </ng-container>
   </tbody>
 </table>

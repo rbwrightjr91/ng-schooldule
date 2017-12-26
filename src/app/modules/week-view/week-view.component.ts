@@ -13,6 +13,8 @@ import { FirestoreService } from './firestore.service';
 })
 export class WeekViewComponent implements OnInit {
 
+  days = ['sun', 'mon', 'tues', 'wed', 'thurs', 'fri', 'sat'];
+
   classData: Class[];
   earliestClass: Class;
   latestClass: Class;

@@ -7,6 +7,106 @@ th {
   text-align: right;
 }
 
+.ten-mins-before-even {
+  height: 100%;
+  background: linear-gradient(0deg, #007bff 10%, white 10%);
+}
+
+.quarter-hour-before-even {
+  height: 100%;
+  background: linear-gradient(0deg, #007bff 25%, white 25%);
+}
+
+.half-hour-before-even {
+  height: 100%;
+  background: linear-gradient(0deg, #007bff 50%, white 50%);
+}
+
+.three-quarter-hour-before-even {
+  height: 100%;
+  background: linear-gradient(0deg, #007bff 75%, white 75%);
+}
+
+.fifty-mins-before-even {
+  height: 100%;
+  background: linear-gradient(0deg, #007bff 90%, white 90%);
+}
+
+.ten-mins-after-even {
+  height: 100%;
+  background: linear-gradient(0deg, white 10%, #007bff 25%);
+}
+
+.quarter-hour-after-even {
+  height: 100%;
+  background: linear-gradient(0deg, white 25%, #007bff 25%);
+}
+
+.half-hour-after-even {
+  height: 100%;
+  background: linear-gradient(0deg, white 50%, #007bff 50%);
+}
+
+.three-quarter-hour-after-even {
+  height: 100%;
+  background: linear-gradient(0deg, white 75%, #007bff 75%);
+}
+
+.fifty-mins-after-even {
+  height: 100%;
+  background: linear-gradient(0deg, white 90%, #007bff 90%);
+}
+
+.ten-mins-before-odd {
+  height: 100%;
+  background: linear-gradient(0deg, #007bff 10%, #eceeef 10%);
+}
+
+.quarter-hour-before-odd {
+  height: 100%;
+  background: linear-gradient(0deg, #007bff 25%, #eceeef 25%);
+}
+
+.half-hour-before-odd {
+  height: 100%;
+  background: linear-gradient(0deg, #007bff 50%, #eceeef 50%);
+}
+
+.three-quarter-hour-before-odd {
+  height: 100%;
+  background: linear-gradient(0deg, #007bff 75%, #eceeef 75%);
+}
+
+.fifty-mins-before-odd {
+  height: 100%;
+  background: linear-gradient(0deg, #007bff 90%, #eceeef 90%);
+}
+
+.ten-mins-after-odd {
+  height: 100%;
+  background: linear-gradient(0deg, #eceeef 10%, #007bff 25%);
+}
+
+.quarter-hour-after-odd {
+  height: 100%;
+  background: linear-gradient(0deg, #eceeef 25%, #007bff 25%);
+}
+
+.half-hour-after-odd {
+  height: 100%;
+  background: linear-gradient(0deg, #eceeef 50%, #007bff 50%);
+}
+
+.three-quarter-hour-after-odd {
+  height: 100%;
+  background: linear-gradient(0deg, #eceeef 75%, #007bff 75%);
+}
+
+.fifty-mins-after-odd {
+  height: 100%;
+  background: linear-gradient(0deg, #eceeef 90%, #007bff 90%);
+}
+
 /* #time-slot {
 
 } */
