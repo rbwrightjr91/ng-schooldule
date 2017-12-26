@@ -30,13 +30,30 @@ export class WeekViewComponent implements OnInit {
 
   getTimeSlots(): number[] {
 
-    // get difference in time between earliest start and latest end in ms
-    const timeDiffMs = this.latestClass.end.getTime() - this.earliestClass.start.getTime();
-
-    // convert ms to hours, rounding up, and ad two extra time slots (one slot before earliest class and one slot after latest class)
-    const timeDiff = (Math.ceil(timeDiffMs / (3600 * 1000)) + 2);
+    // get difference in time between earliest start and latest end, with extra hours to pad schedule
+    const timeDiffHours = this.latestClass.end.getHours() - this.earliestClass.start.getHours() + 3;
 
     // create amd return an array with size equal to amount of time slots
-    return Array(timeDiff).fill(0).map((x, i) => i);
+    return Array(timeDiffHours).fill(0).map((x, i) => (this.earliestClass.start.getTime() - 3600 * 1000) + (i * 3600 * 1000));
   }
+
+  inSession(time: number, day: string): boolean {
+
+    let inSession = false;
+
+    for (const c of this.classData) {
+
+      if (c.days.includes(day) && c.start.getTime() <= time  && c.end.getTime() >= time) {
+        inSession = true;
+      }
+
+    }
+
+    return inSession;
+  }
+
+  quarter(): boolean {
+    return false;
+  }
+
 }
