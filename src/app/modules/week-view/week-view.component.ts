@@ -53,7 +53,7 @@ export class WeekViewComponent implements OnInit {
       if (c.days.includes(day)) {
 
         // check if class in session during the fu
-        if ((c.start.getHours() <= time.getHours()  && c.end.getHours() >= time.getHours()) || this.partOfHour(c)) {
+        if (c.start.getHours() <= time.getHours()  && c.end.getHours() >= time.getHours()) {
           inSession = true;
         }
 
@@ -62,11 +62,6 @@ export class WeekViewComponent implements OnInit {
     }
 
     return inSession;
-  }
-
-  partOfHour(c: Class): boolean {
-
-    return false;
   }
 
 }
