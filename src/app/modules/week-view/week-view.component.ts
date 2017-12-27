@@ -20,8 +20,6 @@ export class WeekViewComponent implements OnInit {
   earliestClass: Class;
   latestClass: Class;
 
-  testClass: Class;
-
   constructor(private fss: FirestoreService) {
   }
 
@@ -30,8 +28,6 @@ export class WeekViewComponent implements OnInit {
     this.fss.getClasses().subscribe((data) => this.classData = data);
     this.fss.getEarliest().subscribe((data) => this.earliestClass = data[0]);
     this.fss.getLatest().subscribe((data) => this.latestClass = data[0]);
-
-    this.fss.getClass('CSC 180').subscribe((data) => this.testClass = data[0]);
 
   }
 
