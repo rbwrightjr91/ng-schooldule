@@ -13,6 +13,7 @@
         <td *ngFor="let day of days; let i = index" id={{day}} [ngClass] = "{ 'bg-primary' : inSession(time, day) }"
                                                               [ngStyle]="{'height': '100%', 'background': getLinearGradient(i + 1, time, day) }"></td>
         <!-- <p>{{time}}</p> -->
+        <td class="bg-primary" style= "height: 100%; background: linear-gradient(0deg, blue 25%, white 0%);">TEST</td>
       </tr>
     </ng-container>
   </tbody>
