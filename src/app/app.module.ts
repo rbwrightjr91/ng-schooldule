@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 
-import { WeekViewModule } from './modules/week-view/week-view.module';
+import { NgSchoolduleModule } from './modules/ng-schooldule/ng-schooldule.module';
 
 
 @NgModule({
@@ -14,7 +14,7 @@ import { WeekViewModule } from './modules/week-view/week-view.module';
   ],
   imports: [
     BrowserModule,
-    WeekViewModule
+    NgSchoolduleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
