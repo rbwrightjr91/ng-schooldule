@@ -68,27 +68,36 @@ export class WeekViewComponent implements OnInit {
     for (const c of this.classData){
       if (c.days.includes(day)) {
         if (c.start.getMinutes() !== 0 && c.end.getMinutes() !== 0) {
+          console.log('start mins: ' + c.start.getMinutes() + ' end mins: ' + c.end.getMinutes());
           if (c.start.getHours() === time.getHours()) {
+            if (index % 2 === 0) {
+              colorOne = '#ffffff';
+              colorTwo = '#007bff';
+            }else {
+              colorOne = '#007bff';
+              colorTwo = '#f2f2f2';
+            }
+            sizeOne = ((1 - (c.start.getMinutes() / 60)) * 100).toString();
+            console.log('size one: ' + sizeOne);
             sizeTwo = (c.start.getMinutes() / 60 * 100).toString();
-            sizeOne = ((1 - c.start.getMinutes() / 60) * 100).toString();
-          }else if (c.end.getHours() === time.getHours()) {
+          }else if (c.end.getHours() === time.getHours() + 1) {
             index++;
-            sizeTwo = ((1 - c.start.getMinutes() / 60) * 100).toString();
-            sizeOne = (c.start.getMinutes() / 60 * 100).toString();
-          }
 
-          if (index % 2 === 0) {
-            colorOne = '#ffffff';
-            colorTwo = '#007bff';
-          }else{
-            colorOne = '#007bff';
-            colorTwo = '#eceeef';
+            if (index % 2 === 0) {
+              colorOne = '#007bff';
+              colorTwo = '#ffffff';
+            }else {
+              colorOne = '#f2f2f2';
+              colorTwo = '#007bff';
+            }
+
+            sizeOne = ((1 - (c.end.getMinutes() / 60)) * 100).toString();
+            sizeTwo = (c.end.getMinutes() / 60 * 100).toString();
+
           }
         }
       }
     }
-
-    console.log(colorOne + ' ' + sizeOne + '%' + ', ' + colorTwo + ' ' + sizeTwo + '%');
 
     return 'linear-gradient(0deg, ' + colorOne + ' ' + sizeOne + '%' + ', ' + colorTwo + ' ' + sizeTwo + '%)';
   }
