@@ -84,13 +84,14 @@ export class NgSchoolduleComponent implements OnInit {
 
         }else if (c.end.getHours() === time.getHours() && c.end.getMinutes() !== 0) {
 
+          // if (c.start.getHours() !== c.end.getHours() { index++; }
           index++;
 
           if (index % 2 === 0) {
-            colorOne = '#f2f2f2';
+            colorOne = '#ffffff';
             colorTwo = '#007bff';
           }else {
-            colorOne = '#ffffff';
+            colorOne = '#f2f2f2';
             colorTwo = '#007bff';
           }
 
