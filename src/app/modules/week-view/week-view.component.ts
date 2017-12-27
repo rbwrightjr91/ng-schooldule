@@ -20,6 +20,8 @@ export class WeekViewComponent implements OnInit {
   earliestClass: Class;
   latestClass: Class;
 
+  testClass: Class;
+
   constructor(private fss: FirestoreService) {
   }
 
@@ -28,6 +30,8 @@ export class WeekViewComponent implements OnInit {
     this.fss.getClasses().subscribe((data) => this.classData = data);
     this.fss.getEarliest().subscribe((data) => this.earliestClass = data[0]);
     this.fss.getLatest().subscribe((data) => this.latestClass = data[0]);
+
+    this.fss.getClass('CSC 180').subscribe((data) => this.testClass = data[0]);
 
   }
 
@@ -66,43 +70,41 @@ export class WeekViewComponent implements OnInit {
     let sizeTwo: string;
 
     for (const c of this.classData){
+
       if (c.days.includes(day)) {
-        if (c.start.getMinutes() !== 0 && c.end.getMinutes() !== 0) {
-          console.log('start mins: ' + c.start.getMinutes() + ' end mins: ' + c.end.getMinutes());
-          if (c.start.getHours() === time.getHours()) {
 
-            if (index % 2 === 0) {
-              colorOne = '#ffffff';
-              colorTwo = '#007bff';
-            }else {
-              colorOne = '#007bff';
-              colorTwo = '#f2f2f2';
-            }
+        if (c.start.getHours() === time.getHours() && c.start.getMinutes() !== 0) {
 
-            sizeOne = ((1 - (c.start.getMinutes() / 60)) * 100).toString();
-            sizeTwo = (c.start.getMinutes() / 60 * 100).toString();
-
-          }else if (c.end.getHours() === time.getHours() + 1) {
-
-            index++;
-
-            if (index % 2 === 0) {
-              colorOne = '#007bff';
-              colorTwo = '#ffffff';
-            }else {
-              colorOne = '#f2f2f2';
-              colorTwo = '#007bff';
-            }
-
-            sizeTwo = ((1 - (c.end.getMinutes() / 60)) * 100).toString();
-            sizeOne = (c.end.getMinutes() / 60 * 100).toString();
-
-            console.log('size one: ' + sizeOne);
-            console.log('size two: ' + sizeTwo);
-
+          if (index % 2 === 0) {
+            colorOne = '#007bff';
+            colorTwo = '#f2f2f2';
+          }else {
+            colorOne = '#ffffff';
+            colorTwo = '#007bff';
           }
+
+          sizeOne = ((1 - (c.start.getMinutes() / 60)) * 100).toString();
+          sizeTwo = '0';
+
+        }else if (c.end.getHours() === time.getHours() && c.end.getMinutes() !== 0) {
+
+          index++;
+
+          if (index % 2 === 0) {
+            colorOne = '#f2f2f2';
+            colorTwo = '#007bff';
+          }else {
+            colorOne = '#ffffff';
+            colorTwo = '#007bff';
+          }
+
+          sizeOne = ((1 - (c.end.getMinutes() / 60)) * 100).toString();
+          sizeTwo = '0';
+
         }
+
       }
+
     }
 
     return 'linear-gradient(0deg, ' + colorOne + ' ' + sizeOne + '%' + ', ' + colorTwo + ' ' + sizeTwo + '%)';

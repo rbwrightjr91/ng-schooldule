@@ -11,15 +11,16 @@
         <th scope="row" id="time-slot">{{time | date: 'shortTime'}}</th>
         <!-- <td *ngFor="let day of days; let i = index" id={{day}} [ngClass] = "{ 'bg-primary' : inSession(time, day) }"></td> -->
         <td *ngFor="let day of days; let i = index" id={{day}} [ngClass] = "{ 'bg-primary' : inSession(time, day) }"
-                                                              [ngStyle]="{'height': '100%', 'background': getLinearGradient(i + 1, time, day) }"></td>
+                                                              [ngStyle]="{'height': '100%', 'background': getLinearGradient(i, time, day) }"></td>
         <!-- <p>{{time}}</p> -->
-        <td class="bg-primary" style= "height: 100%; background: linear-gradient(0deg, blue 25%, white 0%);">TEST</td>
       </tr>
     </ng-container>
   </tbody>
 </table>
 
-<!-- <br><br>
-<p>{{earliestClass | json}}</p>
+<br><br>
+<p>{{testClass.class}}</p>
 <br>
-<p>{{laClass | json}}</p> -->
+<p [innerHTML]="getLinearGradient(10, getTimeSlots()[10], 'mon')"></p>
+<p [innerHTML]="getTimeSlots()[11].getHours()"></p>
+<p>{{testClass.end.getHours()}}</p>

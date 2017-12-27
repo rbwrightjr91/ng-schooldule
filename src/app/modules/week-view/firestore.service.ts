@@ -32,4 +32,8 @@ export class FirestoreService {
     return this.afs.collection<Class>('Class', ref => ref.orderBy('end', 'desc').limit(1)).valueChanges();
   }
 
+  public getClass(id: string): Observable<Class[]> {
+    return this.afs.collection<Class>('Class', ref => ref.where('class', '==', id)).valueChanges();
+  }
+
 }
