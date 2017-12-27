@@ -87,10 +87,10 @@ export class NgSchoolduleComponent implements OnInit {
           index++;
 
           if (index % 2 === 0) {
-            colorOne = '#f2f2f2';
+            colorOne = '#ffffff';
             colorTwo = '#007bff';
           }else {
-            colorOne = '#ffffff';
+            colorOne = '#f2f2f2';
             colorTwo = '#007bff';
           }
 
