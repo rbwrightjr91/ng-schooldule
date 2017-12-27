@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 
-import { FirestoreModule } from './modules/firestore/firestore.module';
+import { NgSchoolduleModule } from './modules/ng-schooldule/ng-schooldule.module';
 
 
 @NgModule({
@@ -14,7 +14,7 @@ import { FirestoreModule } from './modules/firestore/firestore.module';
   ],
   imports: [
     BrowserModule,
-    FirestoreModule
+    NgSchoolduleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

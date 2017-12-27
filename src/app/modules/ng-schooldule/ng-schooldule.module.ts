@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FirestoreComponent } from './firestore.component';
 
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 
+import { FirestoreService } from './firestore.service';
+import { NgSchoolduleComponent } from './ng-schooldule.component';
+
+
 import { environment } from '../../../environments/environment';
+import { ClassField } from '@angular/compiler/src/output/output_ast';
 export const firebaseConfig = environment.firebaseConfig;
 
 @NgModule({
@@ -17,8 +21,13 @@ export const firebaseConfig = environment.firebaseConfig;
     AngularFirestoreModule,
   ],
   exports: [
-    FirestoreComponent
+    NgSchoolduleComponent
   ],
-  declarations: [FirestoreComponent]
+  providers: [
+    FirestoreService
+  ],
+  declarations: [
+    NgSchoolduleComponent
+  ]
 })
-export class FirestoreModule { }
+export class NgSchoolduleModule { }
