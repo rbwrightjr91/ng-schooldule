@@ -106,4 +106,20 @@ export class NgSchoolduleComponent implements OnInit {
     return 'linear-gradient(0deg, ' + colorOne + ' ' + sizeOne + '%' + ', ' + colorTwo + ' ' + sizeTwo + '%)';
   }
 
+  classInfo(time: Date, day: string): String {
+
+    let classInfo: Class;
+
+    for (const c of this.classData) {
+
+      if (c.days.includes(day) && c.start.getHours() <= time.getHours()  && c.end.getHours() >= time.getHours()) {
+          classInfo = c;
+        }
+
+      }
+
+    return classInfo.class;
+
+  }
+
 }

@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
-
 import { FirestoreService } from './firestore.service';
 import { NgSchoolduleComponent } from './ng-schooldule.component';
 
