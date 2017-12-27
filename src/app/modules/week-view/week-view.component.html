@@ -9,8 +9,9 @@
     <ng-container *ngFor="let time of getTimeSlots(); let s = index">
       <tr>
         <th scope="row" id="time-slot">{{time | date: 'shortTime'}}</th>
-        <td *ngFor="let day of days; let i = index" id={{day}} [ngClass] = "{ 'bg-primary' : inSession(time, day) }"></td>
-                                                              <!-- </td>[ngStyle]="{height: 100%, background: linear-gradient()}"></td> -->
+        <!-- <td *ngFor="let day of days; let i = index" id={{day}} [ngClass] = "{ 'bg-primary' : inSession(time, day) }"></td> -->
+        <td *ngFor="let day of days; let i = index" id={{day}} [ngClass] = "{ 'bg-primary' : inSession(time, day) }"
+                                                              [ngStyle]="{'height': '100%', 'background': getLinearGradient(i + 1, time, day) }"></td>
         <!-- <p>{{time}}</p> -->
       </tr>
     </ng-container>

@@ -50,18 +50,47 @@ export class WeekViewComponent implements OnInit {
 
     for (const c of this.classData) {
 
-      if (c.days.includes(day)) {
-
-        // check if class in session during the fu
-        if (c.start.getHours() <= time.getHours()  && c.end.getHours() >= time.getHours()) {
+      if (c.days.includes(day) && c.start.getHours() <= time.getHours()  && c.end.getHours() >= time.getHours()) {
           inSession = true;
         }
 
       }
 
+    return inSession;
+  }
+
+  getLinearGradient(index: number, time: Date, day: string) {
+    let colorOne: string;
+    let colorTwo: string;
+    let sizeOne: string;
+    let sizeTwo: string;
+
+    for (const c of this.classData){
+      if (c.days.includes(day)) {
+        if (c.start.getMinutes() !== 0 && c.end.getMinutes() !== 0) {
+          if (c.start.getHours() === time.getHours()) {
+            sizeTwo = (c.start.getMinutes() / 60 * 100).toString();
+            sizeOne = ((1 - c.start.getMinutes() / 60) * 100).toString();
+          }else if (c.end.getHours() === time.getHours()) {
+            index++;
+            sizeTwo = ((1 - c.start.getMinutes() / 60) * 100).toString();
+            sizeOne = (c.start.getMinutes() / 60 * 100).toString();
+          }
+
+          if (index % 2 === 0) {
+            colorOne = '#ffffff';
+            colorTwo = '#007bff';
+          }else{
+            colorOne = '#007bff';
+            colorTwo = '#eceeef';
+          }
+        }
+      }
     }
 
-    return inSession;
+    console.log(colorOne + ' ' + sizeOne + '%' + ', ' + colorTwo + ' ' + sizeTwo + '%');
+
+    return 'linear-gradient(0deg, ' + colorOne + ' ' + sizeOne + '%' + ', ' + colorTwo + ' ' + sizeTwo + '%)';
   }
 
 }
