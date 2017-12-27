@@ -70,6 +70,7 @@ export class WeekViewComponent implements OnInit {
         if (c.start.getMinutes() !== 0 && c.end.getMinutes() !== 0) {
           console.log('start mins: ' + c.start.getMinutes() + ' end mins: ' + c.end.getMinutes());
           if (c.start.getHours() === time.getHours()) {
+
             if (index % 2 === 0) {
               colorOne = '#ffffff';
               colorTwo = '#007bff';
@@ -77,9 +78,12 @@ export class WeekViewComponent implements OnInit {
               colorOne = '#007bff';
               colorTwo = '#f2f2f2';
             }
+
             sizeOne = ((1 - (c.start.getMinutes() / 60)) * 100).toString();
             sizeTwo = (c.start.getMinutes() / 60 * 100).toString();
+
           }else if (c.end.getHours() === time.getHours() + 1) {
+
             index++;
 
             if (index % 2 === 0) {
