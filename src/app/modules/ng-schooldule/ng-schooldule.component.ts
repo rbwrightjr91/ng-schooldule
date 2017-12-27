@@ -84,7 +84,6 @@ export class NgSchoolduleComponent implements OnInit {
 
         }else if (c.end.getHours() === time.getHours() && c.end.getMinutes() !== 0) {
 
-          // if (c.start.getHours() !== c.end.getHours() { index++; }
           index++;
 
           if (index % 2 === 0) {
