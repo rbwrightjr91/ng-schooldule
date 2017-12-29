@@ -11,13 +11,15 @@
       <th scope="row" id="time-slot">{{time | date: 'shortTime'}}</th>
       <ng-container *ngFor="let day of days; let d = index">
           <td *ngIf="inSession(time, day)" class = "bg-primary"
-              [ngStyle]="{'height': '100%', 'background': getLinearGradient(s, time, day) }">
-              <!-- <div class="container"><div id="info" class="span12 fill" placement="right" [ngbPopover]="popover" popoverTitle="Class Info" triggers="mouseenter:mouseleave"></div></div> --></td>
+              [ngStyle]="{'height': '100%', 'background': getLinearGradient(s, time, day) }"
+              placement="right" [ngbPopover]="popover" popoverTitle="Class Info" triggers="mouseenter:mouseleave" container="body">
+              <ng-template #popover>
+                <div [innerHtml]="classInfo(time, day)"></div>
+              </ng-template>
+            </td>
           <td *ngIf="!inSession(time, day)"
               [ngStyle]="{'height': '100%', 'background': getLinearGradient(s, time, day) }"></td>
       </ng-container>
     </tr>
   </tbody>
 </table>
-
-<ng-template #popover>Testing</ng-template>
