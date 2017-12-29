@@ -1,4 +1,5 @@
-<table class="table-sm table-striped">
+<div *ngIf="!initialized" class="jumbotron">Loading Scehdule</div>
+<table *ngIf="initialized" class="table-sm table-striped">
   <thead>
     <tr>
       <th scope="col">time</th>
@@ -6,12 +7,19 @@
     </tr>
   </thead>
   <tbody>
-    <ng-container *ngFor="let time of getTimeSlots(); let s = index">
-      <tr>
-        <th scope="row" id="time-slot">{{time | date: 'shortTime'}}</th>
-        <td *ngFor="let day of days; let i = index" id={{day}} [ngClass] = "{ 'bg-primary' : inSession(time, day) }"
-                                                              [ngStyle]="{'height': '100%', 'background': getLinearGradient(s, time, day) }"></td>
-      </tr>
-    </ng-container>
+    <tr *ngFor="let time of timeSlots; let s = index">
+      <th scope="row" id="time-slot">{{time | date: 'shortTime'}}</th>
+      <ng-container *ngFor="let day of days; let d = index">
+          <td *ngIf="inSession(time, day)" class = "bg-primary"
+              [ngStyle]="{'height': '100%', 'background': getLinearGradient(s, time, day) }"
+              placement="right" [ngbPopover]="popover" popoverTitle="Class Info" triggers="mouseenter:mouseleave" container="body">
+              <ng-template #popover>
+                <div [innerHtml]="classInfo(time, day)"></div>
+              </ng-template>
+            </td>
+          <td *ngIf="!inSession(time, day)"
+              [ngStyle]="{'height': '100%', 'background': getLinearGradient(s, time, day) }"></td>
+      </ng-container>
+    </tr>
   </tbody>
 </table>

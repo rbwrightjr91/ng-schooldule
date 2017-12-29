@@ -6,3 +6,7 @@ thead {
 th {
   text-align: right;
 }
+
+span{
+  background-color: red;
+}
