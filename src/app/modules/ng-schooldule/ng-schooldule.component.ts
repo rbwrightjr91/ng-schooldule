@@ -17,6 +17,8 @@ export class NgSchoolduleComponent implements OnInit {
   days = ['sun', 'mon', 'tues', 'wed', 'thurs', 'fri', 'sat'];
   timeSlots: Date[] = [];
   classData: Class[];
+  class: Class;
+  initialized = false;
 
   constructor(private fss: FirestoreService) {
   }
@@ -49,6 +51,8 @@ export class NgSchoolduleComponent implements OnInit {
     this.timeSlots = Array(timeDiffHours).fill(0).map((x, i) => new Date(
       new Date().setTime(earliest.start.getTime() - (3600 * 1000) + (i * 3600 * 1000))
     ));
+
+    this.initialized = true;
 
   }
 
@@ -114,19 +118,19 @@ export class NgSchoolduleComponent implements OnInit {
     return 'linear-gradient(0deg, ' + colorOne + ' ' + sizeOne + '%' + ', ' + colorTwo + ' ' + sizeTwo + '%)';
   }
 
-  classInfo(time: Date, day: string): String {
+  classInfo(time: Date, day: string): string {
 
-    let classInfo: Class;
+    let info;
 
     for (const c of this.classData) {
 
       if (c.days.includes(day) && c.start.getHours() <= time.getHours()  && c.end.getHours() >= time.getHours()) {
-          classInfo = c;
-        }
-
+          info = c;
       }
 
-    return classInfo.class;
+    }
+
+    return info;
 
   }
 
