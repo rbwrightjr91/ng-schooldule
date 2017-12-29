@@ -5,7 +5,6 @@ import { DatePipe } from '@angular/common';
 
 import { Class } from '../../interfaces/class';
 import { FirestoreService } from './firestore.service';
-import { AngularFirestoreCollection } from 'angularfire2/firestore';
 
 
 @Component({
