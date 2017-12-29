@@ -23,11 +23,11 @@ export class NgSchoolduleComponent implements OnInit {
 
   ngOnInit() {
 
-    this.fss.getClasses().subscribe((data) => this.getTimeSlots(data));
+    this.fss.getClasses().subscribe((data) => this.initialize(data));
 
   }
 
-  getTimeSlots(classes: Class[]): Date[] {
+  initialize(classes: Class[]) {
 
     this.classData = classes;
 
@@ -50,7 +50,6 @@ export class NgSchoolduleComponent implements OnInit {
       new Date().setTime(earliest.start.getTime() - (3600 * 1000) + (i * 3600 * 1000))
     ));
 
-    return this.timeSlots;
   }
 
   inSession(time: Date, day: string): boolean {
