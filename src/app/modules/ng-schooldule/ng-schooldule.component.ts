@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { DatePipe } from '@angular/common';
 
@@ -16,6 +16,8 @@ import { AngularFirestoreCollection } from 'angularfire2/firestore';
 })
 export class NgSchoolduleComponent implements OnInit {
 
+  @Input() semester: string;
+  @Input() year: string;
   days = ['sun', 'mon', 'tues', 'wed', 'thurs', 'fri', 'sat'];
   timeSlots: Date[] = [];
   classes: Class[];
