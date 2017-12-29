@@ -15,25 +15,12 @@ export class FirestoreService {
 
   constructor(private afs: AngularFirestore) {
 
-    this.classCollection = this.afs.collection<Class>('Class');
+    this.classCollection = this.afs.collection<Class>('Class', ref => ref.orderBy('start', 'asc'));
     this.classes = this.classCollection.valueChanges();
-
   }
 
   getClasses(): Observable<Class[]> {
     return this.classes;
-  }
-
-  public getEarliest(): Observable<Class[]> {
-    return this.afs.collection<Class>('Class', ref => ref.orderBy('start', 'asc').limit(1)).valueChanges();
-  }
-
-  public getLatest(): Observable<Class[]> {
-    return this.afs.collection<Class>('Class', ref => ref.orderBy('end', 'desc').limit(1)).valueChanges();
-  }
-
-  public getClass(id: string): Observable<Class[]> {
-    return this.afs.collection<Class>('Class', ref => ref.where('class', '==', id)).valueChanges();
   }
 
 }

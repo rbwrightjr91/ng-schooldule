@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { Class } from '../../interfaces/class';
 import { FirestoreService } from './firestore.service';
+import { AngularFirestoreCollection } from 'angularfire2/firestore';
 
 
 @Component({
@@ -15,30 +16,38 @@ export class NgSchoolduleComponent implements OnInit {
 
   days = ['sun', 'mon', 'tues', 'wed', 'thurs', 'fri', 'sat'];
   timeSlots: Date[] = [];
-
   classData: Class[];
-  earliestClass: Class;
-  latestClass: Class;
 
   constructor(private fss: FirestoreService) {
   }
 
   ngOnInit() {
 
-    this.fss.getClasses().subscribe((data) => this.classData = data);
-    this.fss.getEarliest().subscribe((data) => this.earliestClass = data[0]);
-    this.fss.getLatest().subscribe((data) => this.latestClass = data[0]);
+    this.fss.getClasses().subscribe((data) => this.getTimeSlots(data));
 
   }
 
-  getTimeSlots(): Date[] {
+  getTimeSlots(classes: Class[]): Date[] {
+
+    this.classData = classes;
+
+    let temp = classes[0];
+
+    for (let i = 0; i < classes.length; i++) {
+      if (temp.end.getTime() < classes[i].end.getTime()) {
+        temp = classes[i];
+      }
+    }
+
+    const earliest = classes[0];
+    const latest = temp;
 
     // get difference in time between earliest start and latest end, with extra hours to pad schedule
-    const timeDiffHours = this.latestClass.end.getHours() - this.earliestClass.start.getHours() + 3;
+    const timeDiffHours = latest.end.getHours() - earliest.start.getHours() + 3;
 
     // create amd return an array with size equal to amount of time slots
     this.timeSlots = Array(timeDiffHours).fill(0).map((x, i) => new Date(
-      new Date().setTime(this.earliestClass.start.getTime() - (3600 * 1000) + (i * 3600 * 1000))
+      new Date().setTime(earliest.start.getTime() - (3600 * 1000) + (i * 3600 * 1000))
     ));
 
     return this.timeSlots;

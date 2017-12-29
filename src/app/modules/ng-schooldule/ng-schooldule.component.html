@@ -6,9 +6,9 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let time of getTimeSlots(); let s = index">
+    <tr *ngFor="let time of timeSlots; let s = index">
       <th scope="row" id="time-slot">{{time | date: 'shortTime'}}</th>
-      <td *ngFor="let day of days"
+      <td *ngFor="let day of days; let d = index"
           [ngClass] = "{ 'bg-primary': inSession(time, day) }"
           [ngStyle]="{'height': '100%', 'background': getLinearGradient(s, time, day) }">
       </td>

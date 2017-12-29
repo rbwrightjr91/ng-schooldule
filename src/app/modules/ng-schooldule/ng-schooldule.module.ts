@@ -6,7 +6,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 
-import { TooltipModule } from 'ngx-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 import { FirestoreService } from './firestore.service';
@@ -22,7 +22,7 @@ export const firebaseConfig = environment.firebaseConfig;
     CommonModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
-    TooltipModule.forRoot(),
+    NgbModule.forRoot(),
   ],
   exports: [
     NgSchoolduleComponent
