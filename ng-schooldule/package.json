@@ -1,0 +1,12 @@
+{
+  "name": "ng-schooldule",
+  "version": "1.0.0-alpha.0",
+  "author": "Richard Wright",
+  "repository": "https://github.com/rbwrightjr91/ng-schooldule.git",
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/core": "^5.0.0",
+    "rxjs":"^5.5.2",
+    "zone.js": "^0.8.14"
+  }
+}

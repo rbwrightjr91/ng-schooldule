@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 
-import { NgSchoolduleModule } from './modules/ng-schooldule/ng-schooldule.module';
+import { NgSchoolduleModule } from '@rbwrightjr91/ng-schooldule';
 
 
 @NgModule({

@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { DatePipe } from '@angular/common';
 
 
-import { Class } from '../../interfaces/class';
+import { Class } from './class';
 import { FirestoreService } from './firestore.service';
 
 

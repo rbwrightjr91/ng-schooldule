@@ -13,7 +13,7 @@ import { FirestoreService } from './firestore.service';
 import { NgSchoolduleComponent } from './ng-schooldule.component';
 
 
-import { environment } from '../../../environments/environment';
+import { environment } from '../../src/environments/environment';
 import { ClassField } from '@angular/compiler/src/output/output_ast';
 export const firebaseConfig = environment.firebaseConfig;
 

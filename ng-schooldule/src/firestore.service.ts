@@ -5,7 +5,7 @@ import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/switchMap';
 
 
-import { Class } from '../../interfaces/class';
+import { Class } from './class';
 
 @Injectable()
 export class FirestoreService {
