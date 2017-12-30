@@ -1,7 +1,7 @@
 {
-  "name": "ng-schooldule",
+  "name": "@rbwrightjr91/ng-schooldule",
   "version": "1.0.0-alpha.0",
-  "author": "Richard Wright",
+  "author": "Richard Wright <rbwrightjr91@gmail.com>",
   "repository": "https://github.com/rbwrightjr91/ng-schooldule.git",
   "license": "MIT",
   "peerDependencies": {
