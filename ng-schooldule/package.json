@@ -1,6 +1,12 @@
 {
+  "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
   "name": "@rbwrightjr91/ng-schooldule",
   "version": "1.0.0-alpha.0",
+  "ngPackage": {
+    "lib": {
+    "entryFile": "public_api.ts"
+    }
+  },
   "author": "Richard Wright <rbwrightjr91@gmail.com>",
   "repository": "https://github.com/rbwrightjr91/ng-schooldule.git",
   "license": "MIT",
