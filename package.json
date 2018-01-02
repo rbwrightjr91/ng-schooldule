@@ -6,22 +6,22 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
-    "build:lib": "ng-packagr",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "packagr": "ng-packagr -p ng-schooldule/ng-package.json"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "^5.0.0",
-    "@angular/common": "^5.0.0",
-    "@angular/compiler": "^5.0.0",
-    "@angular/core": "^5.0.0",
-    "@angular/forms": "^5.0.0",
-    "@angular/http": "^5.0.0",
-    "@angular/platform-browser": "^5.0.0",
-    "@angular/platform-browser-dynamic": "^5.0.0",
-    "@angular/router": "^5.0.0",
+    "@angular/common": "~5.1.0",
+    "@angular/compiler": "~5.1.0",
+    "@angular/core": "~5.1.0",
+    "@angular/forms": "~5.1.0",
+    "@angular/http": "~5.1.0",
+    "@angular/platform-browser": "~5.1.0",
+    "@angular/platform-browser-dynamic": "~5.1.0",
+    "@angular/router": "~5.1.0",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.8",
     "angularfire2": "^5.0.0-rc.4",
     "core-js": "^2.4.1",
@@ -45,10 +45,10 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "ng-packagr": "^1.6.0",
+    "ng-packagr": "^2.0.0-rc.9",
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
-    "typescript": "~2.4.2"
+    "typescript": "~2.5.3"
   }
 }

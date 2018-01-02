@@ -12,7 +12,15 @@ import { FirestoreService } from './firestore.service';
 import { NgSchoolduleComponent } from './ng-schooldule.component';
 
 
-import { ClassField } from '@angular/compiler/src/output/output_ast';
+export interface Class {
+  class: string;
+  title: string;
+  semester?: string;
+  year?: number;
+  days: Array<string>;
+  start: Date;
+  end: Date;
+}
 
 
 @NgModule({

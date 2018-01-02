@@ -5,7 +5,7 @@ import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/switchMap';
 
 
-import { Class } from './class';
+import { Class } from './ng-schooldule.module';
 
 @Injectable()
 export class FirestoreService {
