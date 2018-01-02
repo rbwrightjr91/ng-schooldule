@@ -67,7 +67,7 @@ export const environment = {
 
   3. Imports:
 
-**In app.module.ts**:
+**In `app.module.ts`**:
 
   ```Typescript
   import { NgSchoolduleModule } from '@rbwrightjr91/ng-schooldule';
