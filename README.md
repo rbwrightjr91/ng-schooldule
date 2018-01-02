@@ -2,8 +2,9 @@
 
 **Tools**
 
-* Angular 5
-* Angular Fire 2 / Firebase
+* [Angular 5](https://www.angular.io)
+* [Angular CLI](https://cli.angular.io)
+* [Angular Fire 2](https://github.com/angular/angularfire2) / [Firebase](firebase.google.com)
 
 ## Setup
 
@@ -46,7 +47,7 @@
     * Click the gear next to "Project Overview" on the sidebar and click 'Project Settings'
     * Click 'Add Firebase to your web app' and copy these values into your `environment.ts` files, like so"
 
-          ```
+          ```Typescript
           export const environment = {
             production: false,
             firebaseConfig: {
@@ -67,7 +68,7 @@
 
       **In app.module.ts**:
 
-        ```
+        ```Typescript
         import { NgSchoolduleModule } from '@rbwrightjr91/ng-schooldule';
         import { AngularFireModule } from 'angularfire2';
 
