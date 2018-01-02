@@ -63,7 +63,7 @@ export const environment = {
 ```
 
 
-  2. Run `npm install @rbwrightjr91/ng-schooldule`.
+  2. Run `npm install firebase angularfire2 --save` and `npm install @rbwrightjr91/ng-schooldule`.
 
   3. Imports:
 
