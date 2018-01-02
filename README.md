@@ -13,7 +13,7 @@
   * Go to [firebase.google.com](firebase.google.com) and login with your Google account
   * Click 'Get Started'
   * Click 'Add Project' and enter a project name
-  * Inside the 'Develop' menu, select 'Sign-In Method' and enable 'Google' and 'Anonymous'
+  * Inside the 'Develop' menu under 'Authentication', select 'Sign-In Method' and enable 'Google' and 'Anonymous'
   * Inside the 'Develop' menu, select 'Database' and click 'Try Firestore Beta'
   * Under the 'Data' tab, click 'Add Collection' and title it 'Class'
   * In the 'Class' collection, click 'Add Document' and enter class details with the following fields:
