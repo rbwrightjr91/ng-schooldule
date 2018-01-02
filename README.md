@@ -52,7 +52,7 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: 'some-token,
+    apiKey: 'some-token',
     authDomain: 'some-domain',
     databaseURL: 'some-url',
     projectId: 'some-project-id',
