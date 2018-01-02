@@ -10,13 +10,13 @@
 
   1. Setup firestore:
 
-      * Go to [firebase.google.com](firebase.google.com) and login with your Google account
-      * Click 'Get Started'
-      * Click 'Add Project' and enter a project name
-      * Inside the 'Develop' menu, select 'Sign-In Method' and enable 'Google' and 'Anonymous'
-      * Inside the 'Develop' menu, select 'Database' and click 'Try Firestore Beta'
-      * Under the 'Data' tab, click 'Add Collection' and title it 'Class'
-      * In the 'Class' collection, click 'Add Document' and enter class details with the following fields:
+  * Go to [firebase.google.com](firebase.google.com) and login with your Google account
+  * Click 'Get Started'
+  * Click 'Add Project' and enter a project name
+  * Inside the 'Develop' menu, select 'Sign-In Method' and enable 'Google' and 'Anonymous'
+  * Inside the 'Develop' menu, select 'Database' and click 'Try Firestore Beta'
+  * Under the 'Data' tab, click 'Add Collection' and title it 'Class'
+  * In the 'Class' collection, click 'Add Document' and enter class details with the following fields:
               
 | name                | field         |
 |---------------------|---------------|
@@ -30,8 +30,9 @@
 
 \* a note about timestamps: The month/day/year of the timestamp doesn't matter
                             but make sure they are the **same for all classes**
+
     
-    * Under the 'Rules' tab, edit the rules to match:
+  * Under the 'Rules' tab, edit the rules to match:
 
 ```
   service cloud.firestore {
@@ -44,8 +45,8 @@
   }
 ```
 
-    * Click the gear next to "Project Overview" on the sidebar and click 'Project Settings'
-    * Click 'Add Firebase to your web app' and copy these values into your `environment.ts` files, like so"
+  * Click the gear next to "Project Overview" on the sidebar and click 'Project Settings'
+  * Click 'Add Firebase to your web app' and copy these values into your `environment.ts` files, like so"
 
 ```Typescript
 export const environment = {
