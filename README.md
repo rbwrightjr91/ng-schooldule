@@ -2,9 +2,10 @@
 
 **Tools**
 
-* [Angular 5](https://www.angular.io)
-* [Angular CLI](https://cli.angular.io)
-* [Angular Fire 2](https://github.com/angular/angularfire2) / [Firebase](firebase.google.com)
+* [Angular 5](https://www.angular.io/)
+* [Angular CLI](https://cli.angular.io/)
+* [Angular Fire 2](https://github.com/angular/angularfire2/) / [Firebase](firebase.google.com)
+* [Bootstrap](https://www.getbootstrap.com/) / [ng-bootstrap](https://ng-bootstrap.github.io/)
 
 ## Setup
 
