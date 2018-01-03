@@ -44,15 +44,19 @@ export class NgSchoolduleComponent implements OnInit {
       }
     }
 
-    const earliest = classes[0];
-    const latest = temp;
+    const earliestTime = new Date(classes[0].start.getTime());
+    const latestTime = new Date(temp.end.getTime());
+
+    // normalize time
+    // start of hour of earliest time
+    earliestTime.setMinutes(0);
 
     // get difference in time between earliest start and latest end, with extra hours to pad schedule
-    const timeDiffHours = latest.end.getHours() - earliest.start.getHours() + 3;
+    const timeDiffHours = latestTime.getHours() - earliestTime.getHours() + 3;
 
     // create amd return an array with size equal to amount of time slots
     this.timeSlots = Array(timeDiffHours).fill(0).map((x, i) => new Date(
-      new Date().setTime(earliest.start.getTime() - (3600 * 1000) + (i * 3600 * 1000))
+      new Date().setTime(earliestTime.getTime() - (3600 * 1000) + (i * 3600 * 1000))
     ));
 
     this.initialized = true;
@@ -81,6 +85,8 @@ export class NgSchoolduleComponent implements OnInit {
     let sizeOne: string;
     let sizeTwo: string;
 
+    let linearGradient: string;
+
     for (const c of this.classes){
       for (const d of c.days){
         if (d === day) {
@@ -89,17 +95,14 @@ export class NgSchoolduleComponent implements OnInit {
               colorOne = '#007bff';
               colorTwo = '#f2f2f2';
             }else {
-              colorOne = '#ffffff';
-              colorTwo = '#007bff';
+              colorTwo = '#ffffff';
+              colorOne = '#007bff';
             }
 
             sizeOne = ((1 - (c.start.getMinutes() / 60)) * 100).toString();
             sizeTwo = '0';
           }else if (c.end.getHours() === time.getHours() && c.end.getMinutes() !== 0) {
-
-            index++;
-
-            if (index % 2 === 0) {
+            if ((index + 1) % 2 === 0) {
               colorOne = '#ffffff';
               colorTwo = '#007bff';
             }else {
@@ -114,7 +117,9 @@ export class NgSchoolduleComponent implements OnInit {
       }
     }
 
-    return 'linear-gradient(0deg, ' + colorOne + ' ' + sizeOne + '%' + ', ' + colorTwo + ' ' + sizeTwo + '%)';
+    linearGradient = 'linear-gradient(0deg, ' + colorOne + ' ' + sizeOne + '%' + ', ' + colorTwo + ' ' + sizeTwo + '%)';
+
+    return linearGradient;
   }
 
   classInfo(time: Date, day: string): string {
