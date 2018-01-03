@@ -106,7 +106,7 @@ export const environment = {
 
 
 
-##If you'd like to contribute:
+## If you'd like to contribute:
 
 The module is located in the `ng-schooldule` folder and imported into the root project so it can be served via Angular CLI.
 
