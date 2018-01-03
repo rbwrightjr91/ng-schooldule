@@ -2,10 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 
+import { AngularFireModule } from 'angularfire2';
+
+
 import { AppComponent } from './app.component';
 
 
-import { NgSchoolduleModule } from './modules/ng-schooldule/ng-schooldule.module';
+import { NgSchoolduleModule } from '../../ng-schooldule/src/ng-schooldule.module';
+import { environment } from '../environments/environment';
+export const firebaseConfig = environment.firebaseConfig;
 
 
 @NgModule({
@@ -14,7 +19,8 @@ import { NgSchoolduleModule } from './modules/ng-schooldule/ng-schooldule.module
   ],
   imports: [
     BrowserModule,
-    NgSchoolduleModule
+    NgSchoolduleModule,
+    AngularFireModule.initializeApp(firebaseConfig),
   ],
   providers: [],
   bootstrap: [AppComponent]

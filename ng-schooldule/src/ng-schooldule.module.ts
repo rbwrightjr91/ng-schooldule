@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 
-import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 
@@ -13,14 +12,20 @@ import { FirestoreService } from './firestore.service';
 import { NgSchoolduleComponent } from './ng-schooldule.component';
 
 
-import { environment } from '../../../environments/environment';
-import { ClassField } from '@angular/compiler/src/output/output_ast';
-export const firebaseConfig = environment.firebaseConfig;
+export interface Class {
+  class: string;
+  title: string;
+  semester?: string;
+  year?: number;
+  days: Array<string>;
+  start: Date;
+  end: Date;
+}
+
 
 @NgModule({
   imports: [
     CommonModule,
-    AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     NgbModule.forRoot(),
   ],

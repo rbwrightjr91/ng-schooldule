@@ -3,9 +3,8 @@ import { Observable } from 'rxjs/Observable';
 import { DatePipe } from '@angular/common';
 
 
-import { Class } from '../../interfaces/class';
+import { Class } from './ng-schooldule.module';
 import { FirestoreService } from './firestore.service';
-import { AngularFirestoreCollection } from 'angularfire2/firestore';
 
 
 @Component({
@@ -65,10 +64,13 @@ export class NgSchoolduleComponent implements OnInit {
     let inSession = false;
 
     for (const c of this.classes) {
-      if (c.days.includes(day) && c.start.getHours() <= time.getHours()  && c.end.getHours() >= time.getHours()) {
+      for (const d of c.days){
+        if ( d === day && c.start.getHours() <= time.getHours()  && c.end.getHours() >= time.getHours()) {
           inSession = true;
+          break;
         }
       }
+    }
 
     return inSession;
   }
@@ -80,32 +82,34 @@ export class NgSchoolduleComponent implements OnInit {
     let sizeTwo: string;
 
     for (const c of this.classes){
-      if (c.days.includes(day)) {
-        if (c.start.getHours() === time.getHours() && c.start.getMinutes() !== 0) {
-          if (index % 2 === 0) {
-            colorOne = '#007bff';
-            colorTwo = '#f2f2f2';
-          }else {
-            colorOne = '#ffffff';
-            colorTwo = '#007bff';
+      for (const d of c.days){
+        if (d === day) {
+          if (c.start.getHours() === time.getHours() && c.start.getMinutes() !== 0) {
+            if (index % 2 === 0) {
+              colorOne = '#007bff';
+              colorTwo = '#f2f2f2';
+            }else {
+              colorOne = '#ffffff';
+              colorTwo = '#007bff';
+            }
+
+            sizeOne = ((1 - (c.start.getMinutes() / 60)) * 100).toString();
+            sizeTwo = '0';
+          }else if (c.end.getHours() === time.getHours() && c.end.getMinutes() !== 0) {
+
+            index++;
+
+            if (index % 2 === 0) {
+              colorOne = '#ffffff';
+              colorTwo = '#007bff';
+            }else {
+              colorOne = '#f2f2f2';
+              colorTwo = '#007bff';
+            }
+
+            sizeOne = ((1 - (c.end.getMinutes() / 60)) * 100).toString();
+            sizeTwo = '0';
           }
-
-          sizeOne = ((1 - (c.start.getMinutes() / 60)) * 100).toString();
-          sizeTwo = '0';
-        }else if (c.end.getHours() === time.getHours() && c.end.getMinutes() !== 0) {
-
-          index++;
-
-          if (index % 2 === 0) {
-            colorOne = '#ffffff';
-            colorTwo = '#007bff';
-          }else {
-            colorOne = '#f2f2f2';
-            colorTwo = '#007bff';
-          }
-
-          sizeOne = ((1 - (c.end.getMinutes() / 60)) * 100).toString();
-          sizeTwo = '0';
         }
       }
     }
@@ -116,11 +120,14 @@ export class NgSchoolduleComponent implements OnInit {
   classInfo(time: Date, day: string): string {
 
     let klass;
-    const days: string[] = [];
+    const days: Array<string> = [];
+
 
     for (const c of this.classes) {
-      if (c.days.includes(day) && c.start.getHours() <= time.getHours()  && c.end.getHours() >= time.getHours()) {
-          klass = c;
+      for (const d of c.days){
+        if ( d === day && c.start.getHours() <= time.getHours()  && c.end.getHours() >= time.getHours()) {
+            klass = c;
+        }
       }
     }
 
