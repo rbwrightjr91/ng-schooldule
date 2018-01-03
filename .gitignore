@@ -33,8 +33,6 @@
 npm-debug.log
 testem.log
 /typings
-build.sh
-*/environments
 
 # e2e
 /e2e/*.js
