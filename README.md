@@ -105,3 +105,8 @@ export const environment = {
 5. Usage: `<ng-schooldule [semester]="'Fall'" [year]='2018'></ng-schooldule>` inside your desired `component.html` file.
 
 
+
+##If you'd like to contribute:
+
+The module is located in the `ng-schooldule` folder and imported into the root project so it can be served via Angular CLI.
+
