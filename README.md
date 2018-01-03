@@ -13,7 +13,7 @@
 
 ## Setup
 
-  1. Setup firestore:
+1. Setup firestore:
 
   * Go to [firebase.google.com](firebase.google.com) and login with your Google account
   * Click 'Get Started'
@@ -68,9 +68,9 @@ export const environment = {
 ```
 
 
-  2. Run `npm install firebase angularfire2 --save` and `npm install @rbwrightjr91/ng-schooldule`.
+2. Run `npm install firebase angularfire2 --save` and `npm install @rbwrightjr91/ng-schooldule`.
 
-  3. Imports:
+3. Imports:
 
 **In `app.module.ts`**:
 
@@ -90,7 +90,7 @@ export const environment = {
 
   ```
 
-  4. Add Bootstrap style sheet:
+4. Add Bootstrap style sheet:
   
   **In index.html:**
   
@@ -102,6 +102,6 @@ export const environment = {
   </body>
   ```
 
-  5. Usage: `<ng-schooldule [semester]="'Fall'" [year]='2018'></ng-schooldule>` inside your desired `component.html` file.
+5. Usage: `<ng-schooldule [semester]="'Fall'" [year]='2018'></ng-schooldule>` inside your desired `component.html` file.
 
 
