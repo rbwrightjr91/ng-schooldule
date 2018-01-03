@@ -11,7 +11,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let time of timeSlots; let s = index">
-      <th scope="row" id="time">{{time | date: 'shortTime'}} {{s}}</th>
+      <th scope="row" id="time">{{time | date: 'shortTime'}}</th>
       <ng-container *ngFor="let day of days; let d = index">
           <td *ngIf="inSession(time, day)" class = "bg-primary"
               [ngStyle]="{'height': '100%', 'background': getLinearGradient(s, time, day) }"
