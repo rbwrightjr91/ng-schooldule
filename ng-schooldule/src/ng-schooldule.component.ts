@@ -127,7 +127,6 @@ export class NgSchoolduleComponent implements OnInit {
       for (const d of c.days){
         if ( d === day && c.start.getHours() <= time.getHours()  && c.end.getHours() >= time.getHours()) {
             klass = c;
-            break;
         }
       }
     }
