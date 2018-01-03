@@ -7,6 +7,10 @@
 * [Angular Fire 2](https://github.com/angular/angularfire2/) / [Firebase](firebase.google.com)
 * [Bootstrap](https://www.getbootstrap.com/) / [ng-bootstrap](https://ng-bootstrap.github.io/)
 
+**Demo**
+
+* [Schooldule Demo](https://github.com/rbwrightjr91/schooldule-demo)
+
 ## Setup
 
   1. Setup firestore:
