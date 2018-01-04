@@ -37,7 +37,7 @@
                             but make sure they are the **same for all classes**
                             or the firestore indexing might break.
                             
-\* **a note about `days`:** Use 'mon', 'tues', 'wed', 'thurs', 'fri', 'sat', 'sun'
+\** **a note about `days`:** Use 'mon', 'tues', 'wed', 'thurs', 'fri', 'sat', 'sun'
 
     
   * Under the 'Rules' tab, edit the rules to match:
