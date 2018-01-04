@@ -90,19 +90,7 @@ export const environment = {
 
   ```
 
-4. Add Bootstrap style sheet:
-  
-  **In index.html:**
-  
-  ```
-  <body>
-    <app-root></app-root>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-
-  </body>
-  ```
-
-5. Usage: `<ng-schooldule [semester]="'Fall'" [year]='2018'></ng-schooldule>` inside your desired `component.html` file.
+4. Usage: `<ng-schooldule [semester]="'Fall'" [year]='2018'></ng-schooldule>` inside your desired `component.html` file.
 
 
 
