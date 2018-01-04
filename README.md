@@ -27,14 +27,17 @@
 |---------------------|---------------|
 | class               | string        |
 | title               | string        |
-| days                | Array[string] |
+| days**              | Array[string] |
 | start*              | timestamp     |
 | end*                | timestamp     |
 | semester (optional) | string        |
 | year (optional)     | number        |
 
-\* a note about timestamps: The month/day/year of the timestamp doesn't matter
+\* **a note about timestamps:** The month/day/year of the timestamp doesn't matter
                             but make sure they are the **same for all classes**
+                            or the firestore indexing might break.
+                            
+\* **a note about days:** Use 'mon', 'tues', 'wed', 'thurs', 'fri', 'sat', 'sun'
 
     
   * Under the 'Rules' tab, edit the rules to match:
