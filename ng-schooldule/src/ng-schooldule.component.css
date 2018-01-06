@@ -1,0 +1,16 @@
+thead {
+  background-color: #ddd;
+  color: #666;
+}
+
+#time{
+  text-align: right;
+}
+
+span{
+  background-color: red;
+}
+
+#semester {
+  text-align: center;
+}

@@ -1,0 +1,30 @@
+<div *ngIf="!initialized" class="jumbotron">Loading Scehdule</div>
+<table *ngIf="initialized" class="table-sm table-striped">
+  <thead>
+    <tr>
+        <th scope="row" colspan="8" id="semester">{{semester}} {{year}}</th>
+    </tr>
+    <tr>
+      <th scope="col" id="time">time</th>
+      <th *ngFor="let day of days" scope="col">{{day}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let time of timeSlots; let s = index">
+      <th scope="row" id="time">{{time | date: 'shortTime'}}</th>
+      <ng-container *ngFor="let day of days; let d = index">
+          <td *ngIf="inSession(time, day)" class = "bg-primary"
+              [ngStyle]="{'height': '100%', 'background': getLinearGradient(s, time, day) }"
+              placement="right" [ngbPopover]="popover" popoverTitle="Class Info" triggers="mouseenter:mouseleave" container="body">
+              <ng-template #popover>
+                <div [innerHtml]="classInfo(time, day)"></div>
+              </ng-template>
+            </td>
+          <td *ngIf="!inSession(time, day)"
+              [ngStyle]="{'height': '100%', 'background': getLinearGradient(s, time, day) }"></td>
+      </ng-container>
+    </tr>
+  </tbody>
+</table>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
